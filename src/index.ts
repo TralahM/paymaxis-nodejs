@@ -16,8 +16,8 @@ import {
 } from './resources/payments/payments';
 
 const environments = {
-  production: 'https://app-sandbox.paymaxis.com',
-  environment_1: 'https://app.paymaxis.com',
+  sandbox: 'https://app-sandbox.paymaxis.com',
+  production: 'https://app.paymaxis.com',
 };
 type Environment = keyof typeof environments;
 export interface ClientOptions {
@@ -30,8 +30,8 @@ export interface ClientOptions {
    * Specifies the environment to use for the API.
    *
    * Each environment maps to a different base URL:
-   * - `production` corresponds to `https://app-sandbox.paymaxis.com`
-   * - `environment_1` corresponds to `https://app.paymaxis.com`
+   * - `sandbox` corresponds to `https://app-sandbox.paymaxis.com`
+   * - `production` corresponds to `https://app.paymaxis.com`
    */
   environment?: Environment;
 
@@ -104,7 +104,7 @@ export class Paymaxis extends Core.APIClient {
    * API Client for interfacing with the Paymaxis API.
    *
    * @param {string | undefined} [opts.bearerToken=process.env['BEARER_TOKEN'] ?? undefined]
-   * @param {Environment} [opts.environment=production] - Specifies the environment URL to use for the API.
+   * @param {Environment} [opts.environment=sandbox] - Specifies the environment URL to use for the API.
    * @param {string} [opts.baseURL=process.env['PAYMAXIS_BASE_URL'] ?? https://app-sandbox.paymaxis.com] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {number} [opts.httpAgent] - An HTTP agent used to manage HTTP(s) connections.
@@ -128,7 +128,7 @@ export class Paymaxis extends Core.APIClient {
       bearerToken,
       ...opts,
       baseURL,
-      environment: opts.environment ?? 'production',
+      environment: opts.environment ?? 'sandbox',
     };
 
     if (baseURL && opts.environment) {
@@ -138,7 +138,7 @@ export class Paymaxis extends Core.APIClient {
     }
 
     super({
-      baseURL: options.baseURL || environments[options.environment || 'production'],
+      baseURL: options.baseURL || environments[options.environment || 'sandbox'],
       timeout: options.timeout ?? 60000 /* 1 minute */,
       httpAgent: options.httpAgent,
       maxRetries: options.maxRetries,
