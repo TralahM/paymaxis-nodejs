@@ -103,7 +103,7 @@ export class Paymaxis extends Core.APIClient {
   /**
    * API Client for interfacing with the Paymaxis API.
    *
-   * @param {string | undefined} [opts.bearerToken=process.env['BEARER_TOKEN'] ?? undefined]
+   * @param {string | undefined} [opts.bearerToken=process.env['PAYMAXIS_API_KEY'] ?? undefined]
    * @param {Environment} [opts.environment=sandbox] - Specifies the environment URL to use for the API.
    * @param {string} [opts.baseURL=process.env['PAYMAXIS_BASE_URL'] ?? https://app-sandbox.paymaxis.com] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
@@ -115,12 +115,12 @@ export class Paymaxis extends Core.APIClient {
    */
   constructor({
     baseURL = Core.readEnv('PAYMAXIS_BASE_URL'),
-    bearerToken = Core.readEnv('BEARER_TOKEN'),
+    bearerToken = Core.readEnv('PAYMAXIS_API_KEY'),
     ...opts
   }: ClientOptions = {}) {
     if (bearerToken === undefined) {
       throw new Errors.PaymaxisError(
-        "The BEARER_TOKEN environment variable is missing or empty; either provide it, or instantiate the Paymaxis client with an bearerToken option, like new Paymaxis({ bearerToken: 'My Bearer Token' }).",
+        "The PAYMAXIS_API_KEY environment variable is missing or empty; either provide it, or instantiate the Paymaxis client with an bearerToken option, like new Paymaxis({ bearerToken: 'My Bearer Token' }).",
       );
     }
 
