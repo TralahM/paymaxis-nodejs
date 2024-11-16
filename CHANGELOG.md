@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-alpha.1 (2024-11-16)
+
+Full Changelog: [v0.0.1-alpha.1...v0.1.0-alpha.1](https://github.com/TralahM/paymaxis-nodejs/compare/v0.0.1-alpha.1...v0.1.0-alpha.1)
+
+### Features
+
+* **api:** update via SDK Studio ([#4](https://github.com/TralahM/paymaxis-nodejs/issues/4)) ([b9bd67f](https://github.com/TralahM/paymaxis-nodejs/commit/b9bd67f671b05b3dfd5160215b43c8c502a89e34))
+* **api:** update via SDK Studio ([#6](https://github.com/TralahM/paymaxis-nodejs/issues/6)) ([5df7f48](https://github.com/TralahM/paymaxis-nodejs/commit/5df7f4846cdb60da3fb61abf257ea55188f8a314))
+
 ## 0.0.1-alpha.1 (2024-11-16)
 
 Full Changelog: [v0.0.1-alpha.0...v0.0.1-alpha.1](https://github.com/TralahM/paymaxis-nodejs/compare/v0.0.1-alpha.0...v0.0.1-alpha.1)

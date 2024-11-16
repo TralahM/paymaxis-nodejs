@@ -23,7 +23,7 @@ The full API of this library can be found in [api.md](api.md).
 import Paymaxis from 'paymaxis';
 
 const client = new Paymaxis({
-  environment: 'environment_1', // defaults to 'production'
+  environment: 'production', // defaults to 'sandbox'
 });
 
 async function main() {
@@ -44,7 +44,7 @@ This library includes TypeScript definitions for all request params and response
 import Paymaxis from 'paymaxis';
 
 const client = new Paymaxis({
-  environment: 'environment_1', // defaults to 'production'
+  environment: 'production', // defaults to 'sandbox'
 });
 
 async function main() {

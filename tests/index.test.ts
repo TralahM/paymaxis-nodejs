@@ -170,16 +170,12 @@ describe('instantiate client', () => {
       process.env['PAYMAXIS_BASE_URL'] = 'https://example.com/from_env';
 
       expect(
-        () => new Paymaxis({ bearerToken: 'My Bearer Token', environment: 'production' }),
+        () => new Paymaxis({ bearerToken: 'My Bearer Token', environment: 'sandbox' }),
       ).toThrowErrorMatchingInlineSnapshot(
         `"Ambiguous URL; The \`baseURL\` option (or PAYMAXIS_BASE_URL env var) and the \`environment\` option are given. If you want to use the environment you must pass baseURL: null"`,
       );
 
-      const client = new Paymaxis({
-        bearerToken: 'My Bearer Token',
-        baseURL: null,
-        environment: 'production',
-      });
+      const client = new Paymaxis({ bearerToken: 'My Bearer Token', baseURL: null, environment: 'sandbox' });
       expect(client.baseURL).toEqual('https://app-sandbox.paymaxis.com');
     });
   });
@@ -195,14 +191,14 @@ describe('instantiate client', () => {
 
   test('with environment variable arguments', () => {
     // set options via env var
-    process.env['BEARER_TOKEN'] = 'My Bearer Token';
+    process.env['PAYMAXIS_API_KEY'] = 'My Bearer Token';
     const client = new Paymaxis();
     expect(client.bearerToken).toBe('My Bearer Token');
   });
 
   test('with overriden environment variable arguments', () => {
     // set options via env var
-    process.env['BEARER_TOKEN'] = 'another My Bearer Token';
+    process.env['PAYMAXIS_API_KEY'] = 'another My Bearer Token';
     const client = new Paymaxis({ bearerToken: 'My Bearer Token' });
     expect(client.bearerToken).toBe('My Bearer Token');
   });
