@@ -27,7 +27,13 @@ const client = new Paymaxis({
 });
 
 async function main() {
-  const payment = await client.payments.create({ currency: 'EUR', paymentType: 'DEPOSIT' });
+  const payment = await client.payments.create({
+    currency: 'EUR',
+    paymentType: 'DEPOSIT',
+    amount: 4000,
+    paymentMethod: 'BASIC_CARD',
+    startRecurring: true,
+  });
 
   console.log(payment.result);
 }
@@ -48,7 +54,13 @@ const client = new Paymaxis({
 });
 
 async function main() {
-  const params: Paymaxis.PaymentCreateParams = { currency: 'EUR', paymentType: 'DEPOSIT' };
+  const params: Paymaxis.PaymentCreateParams = {
+    currency: 'EUR',
+    paymentType: 'DEPOSIT',
+    amount: 4000,
+    paymentMethod: 'BASIC_CARD',
+    startRecurring: true,
+  };
   const payment: Paymaxis.Payment = await client.payments.create(params);
 }
 
@@ -67,7 +79,13 @@ a subclass of `APIError` will be thrown:
 ```ts
 async function main() {
   const payment = await client.payments
-    .create({ currency: 'EUR', paymentType: 'DEPOSIT' })
+    .create({
+      currency: 'EUR',
+      paymentType: 'DEPOSIT',
+      amount: 4000,
+      paymentMethod: 'BASIC_CARD',
+      startRecurring: true,
+    })
     .catch(async (err) => {
       if (err instanceof Paymaxis.APIError) {
         console.log(err.status); // 400
@@ -111,7 +129,7 @@ const client = new Paymaxis({
 });
 
 // Or, configure per-request:
-await client.payments.create({ currency: 'EUR', paymentType: 'DEPOSIT' }, {
+await client.payments.create({ currency: 'EUR', paymentType: 'DEPOSIT', amount: 4000, paymentMethod: 'BASIC_CARD', startRecurring: true }, {
   maxRetries: 5,
 });
 ```
@@ -128,7 +146,7 @@ const client = new Paymaxis({
 });
 
 // Override per-request:
-await client.payments.create({ currency: 'EUR', paymentType: 'DEPOSIT' }, {
+await client.payments.create({ currency: 'EUR', paymentType: 'DEPOSIT', amount: 4000, paymentMethod: 'BASIC_CARD', startRecurring: true }, {
   timeout: 5 * 1000,
 });
 ```
@@ -149,12 +167,26 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 ```ts
 const client = new Paymaxis();
 
-const response = await client.payments.create({ currency: 'EUR', paymentType: 'DEPOSIT' }).asResponse();
+const response = await client.payments
+  .create({
+    currency: 'EUR',
+    paymentType: 'DEPOSIT',
+    amount: 4000,
+    paymentMethod: 'BASIC_CARD',
+    startRecurring: true,
+  })
+  .asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
 const { data: payment, response: raw } = await client.payments
-  .create({ currency: 'EUR', paymentType: 'DEPOSIT' })
+  .create({
+    currency: 'EUR',
+    paymentType: 'DEPOSIT',
+    amount: 4000,
+    paymentMethod: 'BASIC_CARD',
+    startRecurring: true,
+  })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(payment.result);
@@ -262,7 +294,13 @@ const client = new Paymaxis({
 
 // Override per-request:
 await client.payments.create(
-  { currency: 'EUR', paymentType: 'DEPOSIT' },
+  {
+    currency: 'EUR',
+    paymentType: 'DEPOSIT',
+    amount: 4000,
+    paymentMethod: 'BASIC_CARD',
+    startRecurring: true,
+  },
   {
     httpAgent: new http.Agent({ keepAlive: false }),
   },
