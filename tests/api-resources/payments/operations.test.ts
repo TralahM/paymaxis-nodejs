@@ -10,7 +10,7 @@ const client = new Paymaxis({
 
 describe('resource operations', () => {
   test('list', async () => {
-    const responsePromise = client.payments.operations.list('id');
+    const responsePromise = client.payments.operations.list('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,8 +22,10 @@ describe('resource operations', () => {
 
   test('list: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.payments.operations.list('id', { path: '/_stainless_unknown_path' })).rejects.toThrow(
-      Paymaxis.NotFoundError,
-    );
+    await expect(
+      client.payments.operations.list('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', {
+        path: '/_stainless_unknown_path',
+      }),
+    ).rejects.toThrow(Paymaxis.NotFoundError);
   });
 });
