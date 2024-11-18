@@ -10,7 +10,7 @@ const client = new Paymaxis({
 
 describe('resource subscriptions', () => {
   test('retrieve', async () => {
-    const responsePromise = client.subscriptions.retrieve('id');
+    const responsePromise = client.subscriptions.retrieve('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,13 +22,13 @@ describe('resource subscriptions', () => {
 
   test('retrieve: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.subscriptions.retrieve('id', { path: '/_stainless_unknown_path' })).rejects.toThrow(
-      Paymaxis.NotFoundError,
-    );
+    await expect(
+      client.subscriptions.retrieve('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', { path: '/_stainless_unknown_path' }),
+    ).rejects.toThrow(Paymaxis.NotFoundError);
   });
 
   test('update', async () => {
-    const responsePromise = client.subscriptions.update('id', {});
+    const responsePromise = client.subscriptions.update('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', {});
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
