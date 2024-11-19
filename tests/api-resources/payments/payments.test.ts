@@ -78,12 +78,7 @@ describe('resource payments', () => {
         description: 'Subscription to service',
         frequencyUnit: 'MINUTE',
         numberOfCycles: 12,
-        retryStrategy: {
-          frequency: 2,
-          numberOfCycles: 12,
-          amountAdjustments: [1, 1, 1],
-          frequencyUnit: 'MINUTE',
-        },
+        retryStrategy: { frequency: 2, numberOfCycles: 12, amountAdjustments: [1], frequencyUnit: 'MINUTE' },
         startTime: '2030-12-25T10:11:12',
       },
       webhookUrl: 'https://mywebsite.com/webhooks',
