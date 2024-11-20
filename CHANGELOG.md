@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.0-alpha.4 (2024-11-20)
+
+Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/TralahM/paymaxis-nodejs/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
+
+### Chores
+
+* rebuild project due to codegen change ([#11](https://github.com/TralahM/paymaxis-nodejs/issues/11)) ([52f9810](https://github.com/TralahM/paymaxis-nodejs/commit/52f9810d964a252c0984a8cd4267c7c5ce71914c))
+* remove redundant word in comment ([#14](https://github.com/TralahM/paymaxis-nodejs/issues/14)) ([38f21f8](https://github.com/TralahM/paymaxis-nodejs/commit/38f21f80a745d0b974d5229a874b743349dd02c0))
+
+
+### Documentation
+
+* remove suggestion to use `npm` call out ([#13](https://github.com/TralahM/paymaxis-nodejs/issues/13)) ([30b6932](https://github.com/TralahM/paymaxis-nodejs/commit/30b693213260ac5c288b73c25a46705d1dacf796))
+
 ## 0.1.0-alpha.3 (2024-11-18)
 
 Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/TralahM/paymaxis-nodejs/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
